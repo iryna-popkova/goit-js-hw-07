@@ -9,7 +9,6 @@ const markup = createMarkup(galleryItems)
 
 container.insertAdjacentHTML('beforeend', markup);
 
-container.addEventListener('click', handleImageClick)
 
 function createMarkup(array) {
     return array.map(({ preview, original, description }) => {
@@ -25,4 +24,5 @@ function createMarkup(array) {
     }).join('');
 }
 
-let lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+let lightbox = new SimpleLightbox('.gallery a', {captionsData: "alt", captionDelay: 250});
+
