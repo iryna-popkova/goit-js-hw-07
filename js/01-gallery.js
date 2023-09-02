@@ -7,7 +7,7 @@ const markup = createMarkup(galleryItems)
 
 container.insertAdjacentHTML('beforeend', markup);
 
-container.addEventListener('click', handleImageClick)
+container.addEventListener('click', handleImageClick);
 
 function createMarkup(array) {
     return array.map(({ preview, original, description }) => {
@@ -35,4 +35,15 @@ function handleImageClick(event) {
 `)
 
     instance.show();
+
+document.addEventListener('keydown', handleKeyClick);
+
+function handleKeyClick(event) {
+    if (event.code === "Escape") {
+        instance.close();
+        document.removeEventListener('keydown', handleKeyClick);
+    }
+}
+
 };
+
